@@ -1,0 +1,136 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.resultContainer {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    margin: 40px 0;
+    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
+}
+
+.resultContainer .result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+.result > span {
+    margin: 20px;
+    width: 200px;
+    height: 40px;
+    font-size: 17px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
+}
+
+.result div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
+    transition: all .5s ease;
+}
+
+.result div p {
+    padding: 15px;
+    background-color: #fff;
+    color: blue;
+    width: 120px;
+    height: 20px;
+    border-radius: 10px;
+    transition: all .5s ease;
+    text-align: center;
+}
+
+.result div span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    color: #fff;
+    font-weight: 700px;
+}
+
+.result div:nth-child(2) span  {
+    background-color: #00ff00;
+}
+
+.result div:nth-child(3) span  {
+    background-color: red;
+}
+
+.result div:nth-child(4) span  {
+    background-color: orange;
+}
+
+.result div:nth-child(5) span  {
+    background-color: black;
+    color: white;
+}
+.chart {
+    margin-top: 30px;
+    width: 300px;
+}
+
+.buuton {
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 40px;
+    background: blue;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all .3s ease;
+}
+
+.buuton:hover {
+    background: rgb(67, 67, 251);
+    box-shadow: -3 -3 rgba(94,104,121,0.3) ;
+}
+
+@media screen and (max-width: 400px) {
+    .chart {
+        width: 90vw;
+    }
+
+    .result div p {
+        padding: 7px;
+        width: 100px;
+    }
+    .result div span {
+        width: 35px;
+        height: 35px;
+        font-size: 13px;
+    }
+    .buuton {
+        width: 75px;
+        height: 30px;
+        font-size: 13px;
+    }
+}
