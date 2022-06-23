@@ -9,10 +9,10 @@ import { Message } from '../../Messages/Message';
 //Dipatch 
 import { correctQuestion, wronRuestion, unansweredQuestions } from '../../Redux/result/resultAction';
 import { saveCorrectQuestion, saveUnansweredQuestions, saveWronRuestion, saveAddScore, saveSubtractScore } from '../../Redux/save/saveAction';
+import { mostAnswers } from '../../Redux/mostAnswers/mostAnswersAction';
 
 //Styles
 import Styles from "./Question.module.css"
-import { mostAnswers } from '../../Redux/mostAnswers/mostAnswersAction';
 
 const Button = styled.button`
     margin: 0 auto;
@@ -90,21 +90,23 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
     const [error, setError] = useState(false)
     const [idTimeOut, setIdTimeOut] = useState('')
     
-    
     useEffect(() => {
+        //ترکیب پاسخ ها
         setAnswers([...incorrect_answers, correct_answer].sort(() => Math.random() - 0.5))
         setStatusAnswers(false)
-        setMessage('');
+        setMessage('')
         setRandomScore( 1 + Math.floor(Math.random() * 4))
     }, [quiz])
-    
+
     useEffect(() => {
+        // ست کردن تایمر
         if (time >= 1 && !statusAnswers && !stopTime) {
             var idTimeOut = setTimeout(() => {
                 setTime(time - 1)
             }, 1000);
             setIdTimeOut(idTimeOut)
         } else {
+            // پایان تایمر 
             if (time === 0) {
                 setMessage(Message("endTime"))
                 setStatusAnswers(true)
@@ -137,7 +139,6 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
         setStopTime(false)
     }
 
-    
     const stopTimeHandler = () => {
         if (score >= 30) {
             setStopTime(true)
@@ -169,43 +170,47 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
     return (
         <div className={Styles.container}>
             <div className={Styles.quiz}>
-            <div className={Styles.score}>
-                <span>{score > 0 ? score : "امتیاز"}</span>
-            </div>
-            <div className={Styles.question}>{question}</div>
-            <span className={Styles.time + ' ' + (stopTime && Styles.stopTime) }>{time}</span>
-                    <div className={Styles.buttonContainer}>
-                        {
-                            answers.map(item => <Button disabled={statusAnswers} key={item}
-                            status={statusAnswers} answer={item} answerTrue={correct_answer}
-                             onClick={e => clickAnswers(e.target.innerText)}>
-                            {item}</Button>)
-                        }
-                    </div>
-                    {
-                        error && <span className={Styles.error}>امتیاز شما کافی نمی باشد</span>
-                    }
-                    <div className={Styles.help}>
-                        <button disabled={message} onClick={() => {stopTimeHandler()}}>
-                            <span>متوقف کردن تایمر </span>
-                            <em> 30 امتیاز</em>
-                        </button>
-                        <button disabled={typeQu === "صحیح غلط"  ||message } onClick={() => {removeOptions()}}>
-                            <span >حذف دو گزینه غلط </span>
-                            <em> 40 امتیاز </em>
-                        </button>
-                    </div>
-                <div className={Styles.info}>
-                    <p><span>{category}</span>دسته بندی:</p>
-                    <p><span>سیستم</span>طراح سوال:</p>
+                <div className={Styles.score}>
+                    <span>{score > 0 ? score : "امتیاز"}</span>
                 </div>
-                    <Banner active={message}>
-                        <p>{message}</p>
-                        <span onClick={() => nextQuestion()}>بعدی</span>
-                    </Banner>
+                <div className={Styles.question}>{question}</div>
+                <span className={Styles.time + ' ' + (stopTime && Styles.stopTime) }>{time}</span>
+                        <div className={Styles.buttonContainer}>
+                            {
+                                answers.map(item =>
+                                    <Button
+                                        disabled={statusAnswers}
+                                        key={item}
+                                        status={statusAnswers} 
+                                        answer={item} 
+                                        answerTrue={correct_answer}
+                                        onClick={e => clickAnswers(e.target.innerText)}>
+                                    {item}</Button>)
+                            }
+                        </div>
+                        {
+                            error && <span className={Styles.error}>امتیاز شما کافی نمی باشد</span>
+                        }
+                        <div className={Styles.help}>
+                            <button disabled={message} onClick={() => {stopTimeHandler()}}>
+                                <span>متوقف کردن تایمر </span>
+                                <em> 30 امتیاز</em>
+                            </button>
+                            <button disabled={typeQu === "صحیح غلط"  ||message } onClick={() => {removeOptions()}}>
+                                <span >حذف دو گزینه غلط </span>
+                                <em> 40 امتیاز </em>
+                            </button>
+                        </div>
+                        <div className={Styles.info}>
+                            <p><span>{category}</span>دسته بندی:</p>
+                            <p><span>سیستم</span>طراح سوال:</p>
+                        </div>
+                        <Banner active={message}>
+                            <p>{message}</p>
+                            <span onClick={() => nextQuestion()}>بعدی</span>
+                        </Banner>
+            </div>
         </div>
-        </div>
-        )
-    })
+    )})
 
 export default Question

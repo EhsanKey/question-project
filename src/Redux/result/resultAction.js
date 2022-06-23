@@ -5,7 +5,6 @@ const unansweredQuestions = question => {
     }
 }
 
-
 const correctQuestion = question => {
     return {
         payload: question,

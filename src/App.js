@@ -8,7 +8,9 @@ import Setting from './Components/Setting/Setting'
 import Race from "./Components/Race"
 import ChartStatus from './Components/chartsStatus/ChartStatus'
 
+//Styles
 import "./App.css"
+
 const App = () => {
 
     useEffect(() => {
@@ -20,6 +22,7 @@ const App = () => {
                 score: 0
             }))
         }
+        
         if (!localStorage.getItem("mostAnswers")) {
             localStorage.setItem("mostAnswers", JSON.stringify([]))
         }

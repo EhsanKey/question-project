@@ -1,5 +1,5 @@
 import React, { useEffect, useState, } from 'react'
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { Link, useNavigate } from 'react-router-dom'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
@@ -25,15 +25,13 @@ const Race = () => {
     useEffect(() => {
         if (!settingquestionReducerState.length) navigate("/setting")
         setQuiz(settingquestionReducerState[numberQuiz])
-        
     }, [])
 
     useEffect(() => {
         setQuiz(settingquestionReducerState[numberQuiz])
+        
     }, [numberQuiz])
     
-
-
     const data = {
         labels: ['سوال های بدون پاسخ', 'سوال های درست', 'سوال های نادرست'],
         datasets: [
@@ -67,40 +65,48 @@ const Race = () => {
         },
     }
 
-    return ( 
-        <div className={Styles.container}>
-            {quiz ?
+    if (quiz) {
+        return (
+            <div className={Styles.container}>
                 <Question 
                     setNumberQuiz={setNumberQuiz} 
                     numberQuiz={numberQuiz} quiz={quiz}
                     score={score}
                     setScore={setScore}
-                    /> :
+                    /> 
+            </div>
+        )
+    }
+
+    return ( 
+        <div className={Styles.container}>
+            {
+                numberQuiz === settingquestionReducerState.length && 
                 <div className={Styles.resultContainer}>
-                    <div className={Styles.result}>
-                    <span>نتیجه ی بازی</span>
-                        <div>
-                            <p>سوال های صحیح:</p>
-                            <span>{resultReduserState.correctQuestion}</span>
-                        </div>
-                        <div>
-                            <p>سوال های اشتباه:</p>
-                            <span>{resultReduserState.wronRuestion}</span>
-                        </div>
-                        <div>
-                            <p>سوال های بدون پاسخ:</p>
-                            <span>{resultReduserState.unansweredQuestions}</span>
-                        </div>
-                        <div>
-                            <p>تعداد کل سوال ها:</p>
-                            <span>{settingquestionReducerState.length}</span>
-                        </div>
+                <div className={Styles.result}>
+                <span>نتیجه ی بازی</span>
+                    <div>
+                        <p>سوال های صحیح:</p>
+                        <span>{resultReduserState.correctQuestion}</span>
                     </div>
-                    <div className={Styles.chart}>
-                        <Doughnut data={data} options={options}/>
+                    <div>
+                        <p>سوال های اشتباه:</p>
+                        <span>{resultReduserState.wronRuestion}</span>
                     </div>
+                    <div>
+                        <p>سوال های بدون پاسخ:</p>
+                        <span>{resultReduserState.unansweredQuestions}</span>
+                    </div>
+                    <div>
+                        <p>تعداد کل سوال ها:</p>
+                        <span>{settingquestionReducerState.length}</span>
+                    </div>
+                </div>
+                <div className={Styles.chart}>
+                    <Doughnut data={data} options={options}/>
+                </div>
                     <Link className={Styles.buuton} to="/setting">شروع مجدد</Link>
-                </div>   
+            </div>   
             }
         </div>
     )

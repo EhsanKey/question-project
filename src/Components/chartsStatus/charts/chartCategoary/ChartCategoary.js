@@ -6,6 +6,7 @@ import { Doughnut } from 'react-chartjs-2';
 //Styles
 import Styles from "./ChartCategoary.module.css";
 
+// مشخص کردن رنگ دسته بندی ها
 const colors = [
   {categoary: "جغرافیا", color: "#9CF6FB"},
   {categoary: "ورزشی", color: "#FF6A3D"},
@@ -19,13 +20,13 @@ const colors = [
 const ChartCategoary = () => {
     
     ChartJS.register(ArcElement, Tooltip, Legend);
-
-    const state = useSelector(state => state.mostAnswersReduserState)
+    
     const [numbers, setNumbers] = useState([])
     const [label, setLabal] = useState([])
     const [backgroundColor, setBackgroundColor] = useState([])
-
-      const data = {
+    const state = useSelector(state => state.mostAnswersReduserState)
+    
+    const data = {
       labels: label,
       datasets: [
         {
@@ -36,6 +37,7 @@ const ChartCategoary = () => {
       ],
     };
     
+    // ست کردن دیتا های نمودار
     const setData = () => {
       let numbers = []
       let categoary = []
@@ -57,6 +59,7 @@ const ChartCategoary = () => {
       setData()
     }, [])
 
+    // استایل نمودار
     const options = {
         plugins: {
           legend: {
@@ -68,7 +71,7 @@ const ChartCategoary = () => {
               padding: 20,
             }
           }
-        },
+        }
     }
 
     return (

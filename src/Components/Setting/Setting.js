@@ -27,25 +27,32 @@ const Setting = () => {
     const dispatch = useDispatch();
     const state = useSelector(state => state)
 
-    const [start, setStart] = useState(false)
     const {saveReduserState , settingquestionReducerState} = state
-
+    
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("")
     const [typeQu, setTypeQu] = useState("")
+    const [noneFilter, setNoneFilter] = useState(false)
 
     useEffect(() => {
         dispatch(getSaves())
         dispatch(clearResult())
     }, [])
 
+    useEffect(() => {
+        if(settingquestionReducerState.length) {
+            navigate("/race")
+        }
+    } ,[noneFilter])
+
     const submitHandler = e => {
-        setStart(true)
         e.preventDefault()
         dispatch(filterCategory(questions, category))
         dispatch(filterDifficulty(difficulty))
         dispatch(filterTypeQu(typeQu))
-        navigate("/race")
+        if(!settingquestionReducerState.length) {
+            setNoneFilter(true)
+        }
     }
 
     return (
@@ -96,7 +103,7 @@ const Setting = () => {
                     </Select>
                 </FormControl>
                 {
-                    settingquestionReducerState.length == 0 && <h4>سوالی با این فیلتر پیدا نشد</h4>
+                    noneFilter && <h4>سوالی با این فیلتر پیدا نشد</h4>
                 }
                 <Button onClick={e => submitHandler(e)} variant="contained">شروع</Button>
             </FormGroup>

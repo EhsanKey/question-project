@@ -4,7 +4,6 @@ const initiallState = {
     wronRuestion: 0,
 }
 
-
 const resultReduser = (state = initiallState, action) => {
     switch(action.type) {
         case "UNANSWERED_QUESTION" :

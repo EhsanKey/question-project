@@ -10,7 +10,6 @@ const saveUnansweredQuestions = () => {
     }
 }
 
-
 const saveCorrectQuestion = () => {
     return {
         type: "SAVE_CORRECT_QUESTION",

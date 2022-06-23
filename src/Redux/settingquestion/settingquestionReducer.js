@@ -1,4 +1,4 @@
-const initiallState = ["none"];
+const initiallState = [];
 
 const settingquestionReducer = (state = initiallState, action) => {
     switch(action.type) {
@@ -11,21 +11,24 @@ const settingquestionReducer = (state = initiallState, action) => {
                 const sortQuestions = questions.sort(() => Math.random() - 0.5)
                 return sortQuestions.slice(0, 10)
             }
-            
-            const category = action.payload.questions.filter(item => item.category === action.payload.category);
-            return category[0].questions.sort(() => Math.random() - 0.5);
+                const category = action.payload.questions.filter(item => item.category === action.payload.category);
+        return category[0].questions.sort(() => Math.random() - 0.5);
+
         case "DIFFICULTY" :
             if (action.difficulty === "همه"  ||action.difficulty === '') {
                 return state
             }
-            return state.filter(item => item.difficulty === action.difficulty);
+        return state.filter(item => item.difficulty === action.difficulty);
+
         case "TYPE_QU" : 
-        if (action.typeQu === "همه"  ||action.typeQu === '') {
-            return state
-        }
+            if (action.typeQu === "همه"  ||action.typeQu === '') {
+                return state
+            }
         return state.filter(item => item.typeQu === action.typeQu);
+
         case "REMOVE_FILTER" : 
             return []
+            
         default :
             return state           
     }
