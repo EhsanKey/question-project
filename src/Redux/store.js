@@ -4,6 +4,6 @@ import logger from "redux-logger";
 
 import rootReduser from "./rootReduser"
 
-const store = createStore(rootReduser, composeWithDevTools(applyMiddleware(logger)))
+const store = createStore(rootReduser, composeWithDevTools(applyMiddleware()))
 
 export default store;
