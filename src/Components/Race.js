@@ -105,7 +105,7 @@ const Race = () => {
                 <div className={Styles.chart}>
                     <Doughnut data={data} options={options}/>
                 </div>
-                    <Link className={Styles.buuton} to="/setting">شروع مجدد</Link>
+                    <button onClick={() => window.location.reload()} className={Styles.buuton}>شروع مجدد</button>
             </div>   
             }
         </div>
@@ -113,4 +113,4 @@ const Race = () => {
 
 }
 
-export default Race;
+export default Race; 

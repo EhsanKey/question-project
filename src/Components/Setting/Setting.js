@@ -12,14 +12,14 @@ import MenuItem from '@mui/material/MenuItem';
 import { questions } from '../../Questions/questions'
 
 //Dispatch
-import { filterCategory, filterDifficulty, filterTypeQu } from '../../Redux/settingquestion/settingquestionActions'
+import { filterCategory, filterDifficulty, filterTypeQu, removeFilter } from '../../Redux/settingquestion/settingquestionActions'
+import { clearResult } from '../../Redux/result/resultAction';
 import { Link, useNavigate } from 'react-router-dom';
 import { getSaves } from '../../Redux/save/saveAction';
 
 //Icons
-import {BiLineChart} from "react-icons/bi"
+import { BiLineChart } from "react-icons/bi"
 import Styles from "./Setting.module.css"
-import { clearResult } from '../../Redux/result/resultAction';
 
 const Setting = () => {
 
@@ -35,15 +35,16 @@ const Setting = () => {
     const [noneFilter, setNoneFilter] = useState(false)
 
     useEffect(() => {
-        dispatch(getSaves())
+        dispatch(removeFilter())
         dispatch(clearResult())
+        dispatch(getSaves())
     }, [])
 
     useEffect(() => {
         if(settingquestionReducerState.length) {
             navigate("/race")
         }
-    } ,[noneFilter])
+    } ,[settingquestionReducerState])
 
     const submitHandler = e => {
         e.preventDefault()
