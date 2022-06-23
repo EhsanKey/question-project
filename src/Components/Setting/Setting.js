@@ -14,6 +14,7 @@ import { questions } from '../../Questions/questions'
 //Dispatch
 import { filterCategory, filterDifficulty, filterTypeQu } from '../../Redux/settingquestion/settingquestionActions'
 import { Link, useNavigate } from 'react-router-dom';
+import { getSaves } from '../../Redux/save/saveAction';
 
 //Icons
 import {BiLineChart} from "react-icons/bi"
@@ -23,14 +24,21 @@ const Setting = () => {
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
-    const state = useSelector(state => state.saveReduserState)
+    const state = useSelector(state => state)
+
+    const [start, setStart] = useState(false)
+    const {saveReduserState , settingquestionReducerState} = state
 
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("")
     const [typeQu, setTypeQu] = useState("")
 
+    useEffect(() => {
+        dispatch(getSaves())
+    }, [])
 
     const submitHandler = e => {
+        setStart(true)
         e.preventDefault()
         dispatch(filterCategory(questions, category))
         dispatch(filterDifficulty(difficulty))
@@ -42,7 +50,7 @@ const Setting = () => {
         <div className={Styles.container}>
             <FormGroup >
             <div className={Styles.title}>
-                <span>9999</span>
+                <span>{saveReduserState && saveReduserState.score}</span>
                 <p>قیلتر خود را بر روی سوالات اعمال کنید</p>
                 <Link to="/chartStatus"><BiLineChart /></Link >
             </div>
@@ -85,6 +93,9 @@ const Setting = () => {
                         <MenuItem value="صحیح غلط">صحیح غلط</MenuItem>
                     </Select>
                 </FormControl>
+                {
+                    settingquestionReducerState.length == 0 && <h4>سوالی با این فیلتر پیدا نشد</h4>
+                }
                 <Button onClick={e => submitHandler(e)} variant="contained">شروع</Button>
             </FormGroup>
         </div>

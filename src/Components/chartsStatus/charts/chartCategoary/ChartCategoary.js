@@ -7,11 +7,13 @@ import { Doughnut } from 'react-chartjs-2';
 import Styles from "./ChartCategoary.module.css";
 
 const colors = [
-  {categoary: "مذهبی", color: "red"},
-  {categoary: "جغرافیا", color: "blue"},
-  {categoary: "اطلاعات عمومی", color: "yellow"},
-  {categoary: "ورزشی", color: "burlywood"},
-  {categoary: "طبیعت", color: "aqua"},
+  {categoary: "جغرافیا", color: "#9CF6FB"},
+  {categoary: "ورزشی", color: "#FF6A3D"},
+  {categoary: "مذهبی", color: "#F4DB7D"},
+  {categoary: "اطلاعات عمومی", color: "#BCFD4C"},
+  {categoary: "تکنولوژی", color: "#FAF1CF"},
+  {categoary: "ریاضی و هوش", color: "#F1E821"},
+  {categoary: "علم و دانش", color: "#61082B"},
 ]
 
 const ChartCategoary = () => {

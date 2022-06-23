@@ -61,6 +61,11 @@
     font-size: 20px;
     background: #ffa500;
     box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
+    transition: all .3s ease;
+}
+
+.time.stopTime {
+    background-color: rgb(0, 255, 0);
 }
 
 .buttonContainer {
@@ -72,6 +77,40 @@
     gap: 10px;
 }
 
+.help {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65%;
+}
+
+.help button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: gold;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+    border: none;
+}
+
+.help button:hover {
+    background-color: rgb(237, 208, 45);
+}
+
+.help button span {
+    color: blue;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+}
+
+.help button em {
+    padding-top: 5px;
+}
 
 .info {
     display: flex;
@@ -95,6 +134,11 @@
     padding-right: 10px;
 }
 
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
 @media screen and (max-width: 768px) {
     .quiz {
@@ -150,8 +194,21 @@
         font-size: 10px;
         width: 45%;
     }
+    .help {
+        width: 90%;
+    }
+    .help div span {
+        font-size: 12px;
+    }
+    
+    .help div em {
+        font-size: 12px;
+    }
     .info {
         width: 95%;
         font-size: 10px;
+    }
+    .error {
+        font-size: 13px;
     }
 }

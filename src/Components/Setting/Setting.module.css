@@ -41,6 +41,10 @@
     cursor: pointer;
 }
 
+h4 {
+    margin: 10px auto;
+    color: red;
+}
 
 @media screen and (max-width: 768px) {
     .container .title span,

@@ -8,12 +8,11 @@ import { Message } from '../../Messages/Message';
 
 //Dipatch 
 import { correctQuestion, wronRuestion, unansweredQuestions } from '../../Redux/result/resultAction';
-import { saveCorrectQuestion, saveUnansweredQuestions, saveWronRuestion } from '../../Redux/save/saveAction';
+import { saveCorrectQuestion, saveUnansweredQuestions, saveWronRuestion, saveAddScore, saveSubtractScore } from '../../Redux/save/saveAction';
 
 //Styles
 import Styles from "./Question.module.css"
 import { mostAnswers } from '../../Redux/mostAnswers/mostAnswersAction';
-
 
 const Button = styled.button`
     margin: 0 auto;
@@ -37,7 +36,6 @@ const Button = styled.button`
         font-size: 13px;
     }
 `
-
 const Banner = styled.div`
     position: absolute;
     top: 30%;
@@ -77,18 +75,21 @@ const Banner = styled.div`
         }
     }
 `
-
 const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
 
     const dispatch = useDispatch()
     const score = useSelector(state => state.saveReduserState.score)
 
-    const {category, correct_answer, incorrect_answers, question} = quiz;
+    const {category, correct_answer, incorrect_answers, question, typeQu} = quiz;
     const [answers, setAnswers] = useState([]);
     const [statusAnswers, setStatusAnswers] = useState(false);;
     const [message ,setMessage] = useState("");
     const [time, setTime] = useState(10);
     const [randomScore, setRandomScore] = useState()
+    const [stopTime, setStopTime] = useState(false)
+    const [error, setError] = useState(false)
+    const [idTimeOut, setIdTimeOut] = useState('')
+    
     
     useEffect(() => {
         setAnswers([...incorrect_answers, correct_answer].sort(() => Math.random() - 0.5))
@@ -98,26 +99,28 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
     }, [quiz])
     
     useEffect(() => {
-        if (time >= 1 && !statusAnswers) {
-            setTimeout(() => {
+        if (time >= 1 && !statusAnswers && !stopTime) {
+            var idTimeOut = setTimeout(() => {
                 setTime(time - 1)
             }, 1000);
+            setIdTimeOut(idTimeOut)
         } else {
             if (time === 0) {
-                setMessage("ریدی")
+                setMessage(Message("endTime"))
                 setStatusAnswers(true)
                 dispatch(unansweredQuestions(quiz))
                 dispatch(saveUnansweredQuestions())
             }
         }
-    }, [time, numberQuiz])
+    }, [time, numberQuiz, stopTime])
     
     const clickAnswers = e => {
         setStatusAnswers(true)
         if (e === correct_answer) {
             setMessage(Message(true))
             dispatch(correctQuestion(quiz))
-            dispatch(saveCorrectQuestion(randomScore))
+            dispatch(saveCorrectQuestion())
+            dispatch(saveAddScore(randomScore))
             dispatch(mostAnswers(category))
         } else {
             setMessage(Message(false))
@@ -130,6 +133,37 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
         setNumberQuiz(numberQuiz + 1)
         setStatusAnswers(false)
         setTime(10)
+        clearTimeout(idTimeOut)
+        setStopTime(false)
+    }
+
+    
+    const stopTimeHandler = () => {
+        if (score >= 30) {
+            setStopTime(true)
+            setTimeout(() => {
+                setStopTime(false)
+            }, 5000);
+            dispatch(saveSubtractScore(30))
+        }else {
+            setError(true)
+            setTimeout(() => {
+                setError(false)
+            }, 1000);
+        }
+    }
+
+    const removeOptions = () => {
+        if (score >= 40) {
+            var item = incorrect_answers[Math.floor(Math.random()*incorrect_answers.length)];
+            setAnswers([item, correct_answer].sort(() => Math.random() - 0.5))
+            dispatch(saveSubtractScore(40))
+        }else {
+            setError(true)
+            setTimeout(() => {
+                setError(false)
+            }, 2000);
+        }   
     }
     
     return (
@@ -139,7 +173,7 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
                 <span>{score > 0 ? score : "امتیاز"}</span>
             </div>
             <div className={Styles.question}>{question}</div>
-            <span className={Styles.time}>{time}</span>
+            <span className={Styles.time + ' ' + (stopTime && Styles.stopTime) }>{time}</span>
                     <div className={Styles.buttonContainer}>
                         {
                             answers.map(item => <Button disabled={statusAnswers} key={item}
@@ -147,6 +181,19 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
                              onClick={e => clickAnswers(e.target.innerText)}>
                             {item}</Button>)
                         }
+                    </div>
+                    {
+                        error && <span className={Styles.error}>امتیاز شما کافی نمی باشد</span>
+                    }
+                    <div className={Styles.help}>
+                        <button disabled={message} onClick={() => {stopTimeHandler()}}>
+                            <span>متوقف کردن تایمر </span>
+                            <em> 30 امتیاز</em>
+                        </button>
+                        <button disabled={typeQu === "صحیح غلط"  ||message } onClick={() => {removeOptions()}}>
+                            <span >حذف دو گزینه غلط </span>
+                            <em> 40 امتیاز </em>
+                        </button>
                     </div>
                 <div className={Styles.info}>
                     <p><span>{category}</span>دسته بندی:</p>

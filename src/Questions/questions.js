@@ -17,13 +17,25 @@ export const questions = [
       {
         "category": "جغرافیا",
         "typeQu": "چهارگزینه ای",
-        "difficulty": "متوسط",
-        "question": "چغازنبیل در کدام استا قرار دارد؟ ",
+        "difficulty": "آسان",
+        "question": "چغازنبیل در کدام استان قرار دارد؟ ",
         "correct_answer": "خوزستان",
         "incorrect_answers": [
           "بندر عباس",
           "لرستان",
           "بوشهر"
+        ]
+      },
+      {
+        "category": "جغرافیا",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "متوسط",
+        "question": "قبرستان بقیع در کدام شهر است؟",
+        "correct_answer": "مدینه",
+        "incorrect_answers": [
+          "نجف",
+          "مکه",
+          "قم"
         ]
       },
       {
@@ -38,14 +50,12 @@ export const questions = [
       },
       {
         "category": "جغرافیا",
-        "typeQu": "چهارگزینه ای",
-        "difficulty": "متوسط",
-        "question": "قبرستان بقیع در کدام شهر است؟",
-        "correct_answer": "مدینه",
+        "typeQu": "صحیح غلط",
+        "difficulty": "آسان",
+        "question": "سنقر یکی از شهرستان های استان کرمانشاه نیست",
+        "correct_answer": "غلط",
         "incorrect_answers": [
-          "نجف",
-          "مکه",
-          "قم"
+          "صحیح",
         ]
       },
     ]
@@ -77,6 +87,42 @@ export const questions = [
           "شنا"
         ]
       },
+      {
+        "category": "ورزشی",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "سخت",
+        "question": "تایگر وودز در چه رشته ی فعال بود؟",
+        "correct_answer": "گلف",
+        "incorrect_answers": [
+          "بکس",
+          "تنیس",
+          "خاله بازی میکنه"
+        ]
+      },
+      {
+        "category": "ورزشی",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "سخت",
+        "question": "احسان قائم مقامی قهرمان کدام ورزش است؟",
+        "correct_answer": "شطرنج",
+        "incorrect_answers": [
+          "قایق رانی",
+          "جودو",
+          "مچ اندازی"
+        ]
+      },
+      {
+        "category": "ورزشی",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "آسان",
+        "question": "هر تیم والیبال چند بازیکن در داخل زمین دارد؟",
+        "correct_answer": "6",
+        "incorrect_answers": [
+          "7",
+          "8",
+          "به اندازه ی کافی"
+        ]
+      },
     
       {
         "category": "ورزشی",    
@@ -93,11 +139,21 @@ export const questions = [
       {
         "category": "ورزشی",
         "typeQu": "صحیح غلط",
-        "difficulty": "متوسط",
+        "difficulty": "آسان",
         "question": "بازی فوتبال 11 بازیکت دارد؟",
         "correct_answer": "صحیح",
         "incorrect_answers": [
           "غلط",
+        ]
+      },
+      {
+        "category": "ورزشی",
+        "typeQu": "صحیح غلط",
+        "difficulty": "سخت",
+        "question": "هر نیمه فوتبال به جز وقت اضافه 42 دقیقه است؟",
+        "correct_answer": "غلط",
+        "incorrect_answers": [
+          "صحیح",
         ]
       },
       {
@@ -184,51 +240,135 @@ export const questions = [
         "category": "اطلاعات عمومی",
         "typeQu": "صحیح غلط",
         "difficulty": "آسان",
-        "question": "ایران دارای 30 استا است؟ ",
+        "question": "ایران دارای 30 استان است؟ ",
         "correct_answer": "صحیح",
         "incorrect_answers": [
           "غلط",
         ]
       },
     ]
-  }, 
+  },
   {
-    "category": "طبیعت",
+    "category": "تکنولوژی",
     "questions": [
       {
-        "category": "طبیعت",
+        "category": "تکنولوژی",
         "typeQu": "چهارگزینه ای",
         "difficulty": "متوسط",
-        "question": "سراب نیلوفر در کجا قرار دارد؟",
-        "correct_answer": "کرماتشاه",
+        "question": "گوشی htc ساخت کدام کشور است؟",
+        "correct_answer": "تایوان",
         "incorrect_answers": [
-          'لرستان',
-          'تبریز',
-          'کردستان',
+          'ایران',
+          'چین',
+          'آمریکا',
         ]
       },
       {
-        "category": "طبیعت",
-        "typeQu": "صحیح غلط",
+        "category": "تکنولوژی",
+        "typeQu": "چهارگزینه ای",
         "difficulty": "آسان",
-        "question": "کوه سنگی جاذبه ی گردسگری همدان است؟",
-        "correct_answer": "غلط",
+        "question": "موبایل p9 ساخت کدام یک از کشور های زیر می باشد؟",
+        "correct_answer": "هواوی",
         "incorrect_answers": [
-          "صحیح",
+          'بلک بری',
+          'اپل',
+          'سامسونگ',
+        ]
+      },
+      {
+        "category": "تکنولوژی",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "سخت",
+        "question": "برنامه ی دیسکورد برای کدام سیستم عامل است؟",
+        "correct_answer": "همه موارد",
+        "incorrect_answers": [
+          'Windonws',
+          'Mac',
+          'Android',
         ]
       },
     ]
-  }, 
+  },
+  {
+    "category": "ریاضی و هوش",
+    "questions": [
+      {
+        "category": "ریاضی و هوش",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "سخت",
+        "question": "حاصل 2 به توان صفر تقسیم بر یک برابر است با:",
+        "correct_answer": "یک",
+        "incorrect_answers": [
+          'دو',
+          'صفر',
+          'تعریف نشده',
+        ]
+      },
+      {
+        "category": "ریاضی و هوش",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "متوسط",
+        "question": "2+2+3+340+956",
+        "correct_answer": "1303",
+        "incorrect_answers": [
+          "2342",
+          "1533",
+          "2958",
+        ]
+      },
+      {
+        "category": "ریاضی و هوش",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "آسان",
+        "question": "258+58=",
+        "correct_answer": "316",
+        "incorrect_answers": [
+          "296",
+          "306",
+          "298",
+        ]
+      },
+    ]
+  },
+  {
+    "category": "علم و دانش",
+    "questions": [
+      {
+        "category": "علم و دانش",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "متوسط",
+        "question": "کدام در جواهرات فیمتی استفاده نمی شود؟",
+        "correct_answer": "سیلیس",
+        "incorrect_answers": [
+          'الماس',
+          'زمرد',
+          'اوپال',
+        ]
+      },
+      {
+        "category": "علم و دانش",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "سخت",
+        "question": "کدام در خون دیده نمی شود؟",
+        "correct_answer": "ماکروفاژ",
+        "incorrect_answers": [
+          'مونوسیت',
+          'این یکی نوشتنش سخت بود :)',
+          'هموگلوبین',
+        ]
+      },
+      {
+        "category": "علم و دانش",
+        "typeQu": "چهارگزینه ای",
+        "difficulty": "آسان",
+        "question": "کدام اندامک انرژی سلول را تامین میکند",
+        "correct_answer": "میتوکندری",
+        "incorrect_answers": [
+          'هسته',
+          'کلروپلاست',
+          'این نیست',
+        ]
+      },
+    ]
+  }
   ]
-
-
-
-
-
-
-
-
-
-
-
-

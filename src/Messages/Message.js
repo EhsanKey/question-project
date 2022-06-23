@@ -1,11 +1,12 @@
 export const Message = (type) => {
-    if (type) {
+    if (type === "endTime") {
+        var randomItem = Math.floor(Math.random() * endTime.length)
+        return endTime[randomItem]
+    }else if (type) {
         var randomItem = Math.floor(Math.random() * trueMessage.length)
-        console.log(randomItem)
         return trueMessage[randomItem]
     } else {
         var randomItem = Math.floor(Math.random() * falsMessage.length)
-        console.log(randomItem)
         return falsMessage[randomItem]
     }
 }
@@ -34,4 +35,11 @@ const falsMessage = [
     "فدا سرت",
     "برو ببینم بعدی رو چه میکنی",
     "رفیق تر زدی",
+]
+
+const endTime = [
+    "وقتت تموم شد گلم!",
+    "حاجی یه خورده سریعتر باش",
+    "حلزون!!!",
+    "خداوکیلی سریع تر بازی کن"
 ]

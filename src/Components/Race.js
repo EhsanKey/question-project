@@ -27,6 +27,7 @@ const Race = () => {
     useEffect(() => {
         if (!settingquestionReducerState.length) navigate("/setting")
         setQuiz(settingquestionReducerState[numberQuiz])
+        
     }, [])
 
     useEffect(() => {

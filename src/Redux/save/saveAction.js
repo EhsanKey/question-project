@@ -11,10 +11,9 @@ const saveUnansweredQuestions = () => {
 }
 
 
-const saveCorrectQuestion = score => {
+const saveCorrectQuestion = () => {
     return {
         type: "SAVE_CORRECT_QUESTION",
-        payload: score
     }
 }
 
@@ -24,6 +23,21 @@ const saveWronRuestion = () => {
     }
 }
 
+const saveAddScore = payload => {
+    return {
+        type: "SAVE_ADD_SCORE",
+        payload
+    }
+}
+
+const saveSubtractScore = payload => {
+    return {
+        type: "SAVE_SUBTRACT_SCORE",
+        payload
+    }
+}
 
 
-export {getSaves, saveUnansweredQuestions, saveCorrectQuestion, saveWronRuestion}
+
+
+export {getSaves, saveUnansweredQuestions, saveCorrectQuestion, saveWronRuestion, saveAddScore, saveSubtractScore}

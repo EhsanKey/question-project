@@ -1,4 +1,4 @@
-const initiallState = [];
+const initiallState = ["none"];
 
 const settingquestionReducer = (state = initiallState, action) => {
     switch(action.type) {
@@ -8,7 +8,8 @@ const settingquestionReducer = (state = initiallState, action) => {
                 for(let i = 0; i < Object.keys(action.payload.questions).length; i++) {
                     questions = [...questions ,...action.payload.questions[i].questions]
                 }
-                return questions.sort(() => Math.random() - 0.5)
+                const sortQuestions = questions.sort(() => Math.random() - 0.5)
+                return sortQuestions.slice(0, 10)
             }
             
             const category = action.payload.questions.filter(item => item.category === action.payload.category);
