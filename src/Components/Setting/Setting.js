@@ -19,6 +19,7 @@ import { getSaves } from '../../Redux/save/saveAction';
 //Icons
 import {BiLineChart} from "react-icons/bi"
 import Styles from "./Setting.module.css"
+import { clearResult } from '../../Redux/result/resultAction';
 
 const Setting = () => {
 
@@ -35,6 +36,7 @@ const Setting = () => {
 
     useEffect(() => {
         dispatch(getSaves())
+        dispatch(clearResult())
     }, [])
 
     const submitHandler = e => {

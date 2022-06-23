@@ -9,12 +9,10 @@ import Question from "./Shared/Question"
 
 //Styles
 import Styles from "./Race.module.css"
-import { clearResult } from '../Redux/result/resultAction';
 
 const Race = () => {
 
     const navigate = useNavigate();
-    const dispatch = useDispatch()
     ChartJS.register(ArcElement, Tooltip, Legend);
 
     const state = useSelector(state => state);
@@ -101,7 +99,7 @@ const Race = () => {
                     <div className={Styles.chart}>
                         <Doughnut data={data} options={options}/>
                     </div>
-                    <Link className={Styles.buuton} onClick={() => dispatch(clearResult())} to="/setting">شروع مجدد</Link>
+                    <Link className={Styles.buuton} to="/setting">شروع مجدد</Link>
                 </div>   
             }
         </div>

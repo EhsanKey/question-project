@@ -185,7 +185,7 @@ export const questions = [
         "typeQu": "چهارگزینه ای",
         "difficulty": "سخت",
         "question": "کدام ورزشکار ایرانی موفق به کسب مدال طلای المپیک 1966 آتلانتا شد؟",
-        "correct_answer": "رسوال خادم",
+        "correct_answer": "رسول خادم",
         "incorrect_answers": [
           "امیررضا خادم",
           "حسین رضا زاده",
