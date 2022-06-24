@@ -30,6 +30,10 @@ const Button = styled.button`
     box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
     background-color: ${props => props.status && "red"};
     background-color: ${props => props.status && props.answerTrue === props.answer && "#00ff00"};
+    @media (max-width: 576px) {
+        width: 140px;
+        height: 80px;
+    }
     @media (max-width: 400px) {
         width: 110px;
         height: 60px;
@@ -170,11 +174,13 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
     return (
         <div className={Styles.container}>
             <div className={Styles.quiz}>
-                <div className={Styles.score}>
-                    <span>{score > 0 ? score : "امتیاز"}</span>
+                <div className={Styles.header}>
+                    <div className={Styles.score}>
+                        <span>{score > 0 ? score : "امتیاز"}</span>
+                    </div>
+                    <div className={Styles.question}>{question}</div>
+                    <span className={Styles.time + ' ' + (stopTime && Styles.stopTime) }>{time}</span>
                 </div>
-                <div className={Styles.question}>{question}</div>
-                <span className={Styles.time + ' ' + (stopTime && Styles.stopTime) }>{time}</span>
                         <div className={Styles.buttonContainer}>
                             {
                                 answers.map(item =>

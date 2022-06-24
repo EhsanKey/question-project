@@ -1,3 +1,4 @@
+
 .quiz {
     width: 700px;
     height: 500px;
@@ -8,15 +9,18 @@
     background: #dde1e7;
     box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
     border-radius: 20px;
-    position: relative;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
 }
 
 .score {
     width: 80px;
     height: 80px;
-    position: absolute;
-    top: 20px;
-    left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,11 +36,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 55%;
-    height: 120px;
+    height: 85px;
+    width: 70%;
     margin-top: 20px;
     font-size: 17PX;
     font-weight: bold;
+    line-height: 15px;
     text-align: center;
     color: white;
     border-radius: 20px;
@@ -48,9 +53,6 @@
 .time {
     width: 80px;
     height: 80px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -148,27 +150,28 @@
         width: 60px;
         height: 60px;
         font-size: 22px;
-        top: 26px;
     }
     .question {
-        height: 74px;
+        height: 60px;
         font-size: 15px;
     }
 }
 
 @media screen and (max-width: 576px) {
     .quiz {
-        width: 380px;
+        width: 85vw;
+        height: 95vh;
     }
     .score, .time {
         width: 50px;
         height: 50px;
         font-size: 18px;
-        top: 26px;
     }
     .question {
         height: 57px;
         font-size: 12px;
+        width: 65%;
+        margin: 0 5px;
     }
 }
 
@@ -181,18 +184,12 @@
         width: 50px;
         height: 50px;
         font-size: 18px;
-        top: 18px;
-    }
-    .score {
-        left: 1.5%;
-    }
-    .time {
-        right: 1.5%;
     }
     .question {
         height: 40px;
         font-size: 10px;
         width: 45%;
+        margin: 10px;
     }
     .help {
         width: 90%;
