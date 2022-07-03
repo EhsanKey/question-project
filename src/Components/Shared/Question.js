@@ -172,16 +172,17 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
     }
     
     return (
-        <div className={Styles.container}>
+        <section className={Styles.container}>
             <div className={Styles.quiz}>
-                <div className={Styles.header}>
+                <article className={Styles.header}>
                     <div className={Styles.score}>
                         <span>{score > 0 ? score : "امتیاز"}</span>
                     </div>
+                    {/* question */}
                     <div className={Styles.question}>{question}</div>
                     <span className={Styles.time + ' ' + (stopTime && Styles.stopTime) }>{time}</span>
-                </div>
-                        <div className={Styles.buttonContainer}>
+                </article>
+                        <article className={Styles.buttonContainer}>
                             {
                                 answers.map(item =>
                                     <Button
@@ -193,11 +194,11 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
                                         onClick={e => clickAnswers(e.target.innerText)}>
                                     {item}</Button>)
                             }
-                        </div>
+                        </article>
                         {
                             error && <span className={Styles.error}>امتیاز شما کافی نمی باشد</span>
                         }
-                        <div className={Styles.help}>
+                        <section className={Styles.help}>
                             <button disabled={message} onClick={() => {stopTimeHandler()}}>
                                 <span>متوقف کردن تایمر </span>
                                 <em> 30 امتیاز</em>
@@ -206,17 +207,17 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
                                 <span >حذف دو گزینه غلط </span>
                                 <em> 40 امتیاز </em>
                             </button>
-                        </div>
-                        <div className={Styles.info}>
+                        </section>
+                        <section className={Styles.info}>
                             <p><span>{category}</span>دسته بندی:</p>
                             <p><span>سیستم</span>طراح سوال:</p>
-                        </div>
+                        </section>
                         <Banner active={message}>
                             <p>{message}</p>
                             <span onClick={() => nextQuestion()}>بعدی</span>
                         </Banner>
             </div>
-        </div>
+        </section>
     )})
 
 export default Question

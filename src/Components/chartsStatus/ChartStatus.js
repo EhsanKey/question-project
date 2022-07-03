@@ -23,11 +23,11 @@ const ChartStatus = () => {
     }
     
     return (
-        <div className={Styles.container}>
+        <main className={Styles.container}>
             <ChartCategoary /> 
             <ChartUnansweredQuestions /> 
             <Link to="/setting">بازگشت</Link>
-        </div>
+        </main>
     )
 }
 

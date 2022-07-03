@@ -44,12 +44,12 @@ const ChartUnansweredQuestions = () => {
     }
 
     return (
-      <div className={Styles.container}>
+      <section className={Styles.container}>
         <span>وضعیت پاسخ ها</span>
           <div className={Styles.chart}>
               <Doughnut data={data} options={options} /> 
           </div>
-      </div>
+      </section>
     )
 }
 

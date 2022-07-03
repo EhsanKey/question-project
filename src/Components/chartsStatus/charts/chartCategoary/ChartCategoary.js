@@ -75,12 +75,12 @@ const ChartCategoary = () => {
     }
 
     return (
-      <div className={Styles.container}>
+      <section className={Styles.container}>
         <span>بیشترین پاسخ درست بر اساس دسته بنده </span>
           <div className={Styles.chart}>
             <Doughnut data={data} options={options} /> 
           </div>
-      </div>
+      </section>
     )
 }
 

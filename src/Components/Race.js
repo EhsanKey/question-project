@@ -67,48 +67,47 @@ const Race = () => {
 
     if (quiz) {
         return (
-            <div className={Styles.container}>
+            <main className={Styles.container}>
                 <Question 
                     setNumberQuiz={setNumberQuiz} 
                     numberQuiz={numberQuiz} quiz={quiz}
                     score={score}
                     setScore={setScore}
                     /> 
-            </div>
+            </main>
         )
     }
 
     return ( 
-        <div className={Styles.container}>
-            {
-                numberQuiz === settingquestionReducerState.length && 
+        <main className={Styles.container}>
+            { numberQuiz === settingquestionReducerState.length && 
                 <div className={Styles.resultContainer}>
-                <div className={Styles.result}>
-                <span>نتیجه ی بازی</span>
-                    <div>
-                        <p>سوال های صحیح:</p>
-                        <span>{resultReduserState.correctQuestion}</span>
-                    </div>
-                    <div>
-                        <p>سوال های اشتباه:</p>
-                        <span>{resultReduserState.wronRuestion}</span>
-                    </div>
-                    <div>
-                        <p>سوال های بدون پاسخ:</p>
-                        <span>{resultReduserState.unansweredQuestions}</span>
-                    </div>
-                    <div>
-                        <p>تعداد کل سوال ها:</p>
-                        <span>{settingquestionReducerState.length}</span>
-                    </div>
-                </div>
-                <div className={Styles.chart}>
-                    <Doughnut data={data} options={options}/>
-                </div>
-                    <button onClick={() => window.location.reload()} className={Styles.buuton}>شروع مجدد</button>
-            </div>   
+                    <section className={Styles.result}>
+                        <span>نتیجه ی بازی</span>
+                        <div>
+                            <p>سوال های صحیح:</p>
+                            <span>{resultReduserState.correctQuestion}</span>
+                        </div>
+                        <div>
+                            <p>سوال های اشتباه:</p>
+                            <span>{resultReduserState.wronRuestion}</span>
+                        </div>
+                        <div>
+                            <p>سوال های بدون پاسخ:</p>
+                            <span>{resultReduserState.unansweredQuestions}</span>
+                        </div>
+                        <div>
+                            <p>تعداد کل سوال ها:</p>
+                            <span>{settingquestionReducerState.length}</span>
+                        </div>
+                    </section>
+                        <section className={Styles.chart}>
+                            <Doughnut data={data} options={options}/>
+                        </section>
+                        <button onClick={() => window.location.reload()} className={Styles.buuton}>شروع مجدد</button>
+                </div>   
             }
-        </div>
+        </main>
     )
 
 }

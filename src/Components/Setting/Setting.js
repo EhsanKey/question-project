@@ -57,13 +57,13 @@ const Setting = () => {
     }
 
     return (
-        <div className={Styles.container}>
+        <main className={Styles.container}>
             <FormGroup >
-            <div className={Styles.title}>
+            <section className={Styles.title}>
                 <span>{saveReduserState && saveReduserState.score}</span>
                 <p>قیلتر خود را بر روی سوالات اعمال کنید</p>
                 <Link to="/chartStatus"><BiLineChart /></Link >
-            </div>
+            </section>
                 <FormControl
                     margin="normal">
                     <InputLabel id="category" >دسته بندی</InputLabel>
@@ -108,7 +108,7 @@ const Setting = () => {
                 }
                 <Button onClick={e => submitHandler(e)} variant="contained">شروع</Button>
             </FormGroup>
-        </div>
+        </main>
     )
 }
 
