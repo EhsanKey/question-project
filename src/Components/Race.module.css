@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
 }
 
 .resultContainer {
@@ -13,7 +12,7 @@
     justify-content: center;
     width: 700px;
     margin: 40px 0;
-    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
+    background-color: #6C7293;
 }
 
 .resultContainer .result {
@@ -33,7 +32,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
+    background-color: #20c997;
+    color: #fff;
 }
 
 .result div {
@@ -51,6 +51,8 @@
 .result div p {
     padding: 15px;
     background-color: #fff;
+    font-size: 15px;
+    font-weight: bold;
     color: blue;
     width: 120px;
     height: 20px;
@@ -74,15 +76,15 @@
 }
 
 .result div:nth-child(2) span  {
-    background-color: #00ff00;
+    background-color: #20c997;
 }
 
 .result div:nth-child(3) span  {
-    background-color: red;
+    background-color: #EB1616;
 }
 
 .result div:nth-child(4) span  {
-    background-color: orange;
+    background-color: #ffc107;
 }
 
 .result div:nth-child(5) span  {
@@ -103,6 +105,7 @@
     height: 40px;
     background: blue;
     color: #fff;
+    border: none;
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
@@ -122,6 +125,7 @@
     .result div p {
         padding: 7px;
         width: 100px;
+        font-size: 13px;
     }
     .result div span {
         width: 35px;

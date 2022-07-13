@@ -24,18 +24,18 @@ const Button = styled.button`
     text-align: center;
     transition: all .5s ease;
     font-weight: bold;
-    background: #dde1e7;
+    background: white;
+    color: black;
     cursor: pointer;
     color: ${props => props.status ? "white" : "black"};
-    box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
     background-color: ${props => props.status && "red"};
-    background-color: ${props => props.status && props.answerTrue === props.answer && "#00ff00"};
+    background-color: ${props => props.status && props.answerTrue === props.answer && "#20c997"};
     @media (max-width: 576px) {
         width: 140px;
         height: 80px;
     }
     @media (max-width: 400px) {
-        width: 110px;
+        width: 100px;
         height: 60px;
         font-size: 13px;
     }
@@ -47,6 +47,7 @@ const Banner = styled.div`
     height: 100px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: white ;
     -webkit-box-shadow: 1px 3px 26px -6px #333333;
@@ -60,9 +61,10 @@ const Banner = styled.div`
         text-align: center;
         font-weight: bold;
         font-size: 17px;
+        margin: 10px;
     }
     span {
-        background: blue;
+        background: #fd7e14;
         width: 70px;
         height: 30px;
         display: flex;
@@ -70,7 +72,8 @@ const Banner = styled.div`
         justify-content: center;
         color: #fff;
         border-radius: 5px;
-        cursor: pointer;    
+        cursor: pointer;
+        margin-bottom: 10px;
     }
     @media (max-width: 576px) {
         width: 80%;
@@ -201,11 +204,11 @@ const Question = memo(({ setNumberQuiz, numberQuiz, quiz}) => {
                         <section className={Styles.help}>
                             <button disabled={message} onClick={() => {stopTimeHandler()}}>
                                 <span>متوقف کردن تایمر </span>
-                                <em> 30 امتیاز</em>
+                                <p> 30 امتیاز</p>
                             </button>
                             <button disabled={typeQu === "صحیح غلط"  ||message } onClick={() => {removeOptions()}}>
                                 <span >حذف دو گزینه غلط </span>
-                                <em> 40 امتیاز </em>
+                                <p> 40 امتیاز </p>
                             </button>
                         </section>
                         <section className={Styles.info}>

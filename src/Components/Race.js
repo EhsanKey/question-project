@@ -1,6 +1,6 @@
 import React, { useEffect, useState, } from 'react'
 import { useSelector } from "react-redux"
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
@@ -41,10 +41,11 @@ const Race = () => {
                 resultReduserState.correctQuestion,
                 resultReduserState.wronRuestion
             ],
+            
             backgroundColor: [
-              'orange',
-              'green',
-              'red',
+              '#ffc107',
+              '#20c997',
+              '#EB1616',
             ],
             borderWidth: 1,
           },
@@ -52,14 +53,15 @@ const Race = () => {
       };
 
       const options = {
-        plugins: {
-          legend: {
+          plugins: {
+            legend: {
             position: 'right',
             rtl : true,
             labels: {
-              usePointStyle: true,
-              pointStyle: 'circle',
-              padding: 20,
+                usePointStyle: true,
+                pointStyle: 'circle',
+                padding: 20,
+                color: '#fff'
             }
           }
         },

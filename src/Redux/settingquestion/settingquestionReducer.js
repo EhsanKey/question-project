@@ -3,7 +3,7 @@ const initiallState = [];
 const settingquestionReducer = (state = initiallState, action) => {
     switch(action.type) {
         case "CATEGORY" :
-            if (action.payload.category === "همه"  || action.payload.category === '') {
+            if (action.payload.category === "همه دسته بندی ها"  || action.payload.category === '') {
                 var questions = []
                 for(let i = 0; i < Object.keys(action.payload.questions).length; i++) {
                     questions = [...questions ,...action.payload.questions[i].questions]
@@ -21,7 +21,7 @@ const settingquestionReducer = (state = initiallState, action) => {
         return state.filter(item => item.difficulty === action.difficulty);
 
         case "TYPE_QU" : 
-            if (action.typeQu === "همه"  ||action.typeQu === '') {
+            if (action.typeQu === "هر دو"  ||action.typeQu === '') {
                 return state
             }
         return state.filter(item => item.typeQu === action.typeQu);

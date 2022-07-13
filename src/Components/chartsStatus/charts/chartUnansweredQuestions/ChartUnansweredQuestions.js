@@ -38,6 +38,7 @@ const ChartUnansweredQuestions = () => {
               usePointStyle: true,
               pointStyle: 'circle',
               padding: 20,
+              color: '#fff'
             }
           }
         },
